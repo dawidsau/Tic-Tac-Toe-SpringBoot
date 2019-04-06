@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Getter
@@ -21,5 +22,5 @@ public class Game extends BaseEntity{
     private String name;
 
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "game", fetch = FetchType.EAGER)
-    private Set<Player> players;
+    private Set<Player> players = new HashSet<>();
 }
